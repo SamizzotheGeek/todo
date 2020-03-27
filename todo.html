@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>My ToDo App</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
+    <style>
+body {background-color: #99f;}
+
+footer {position: relative; bottom: 0px; color: blue; align-content: center; padding: 1em; }
+#today {color: white; background-color: gray; font-weight:bold;}
+progress {color: red;}
+@media(min-width: 768px){
+    body{margin: 0 30% 0 30%;}
+}
+    </style>
+</head>
+<body>
+    <header><h3> My Activities Schedule</h3>
+<div id="today"></div>
+</header>
+   <div><fieldset>
+<legend>Task Entry</legend>
+<label>Date:</label><input type="text" name="date" id="date" placeholder="DD/MM/YYYY" required></input><br><br>
+<label>Task:</label><input type="text" name="task" id="entry" placeholder="enter task to be done " required></input><br><br>
+<label>Time:</label><input type="text" name="loc" id="time" placeholder="task start time" required></input><br><br>
+<button onclick="saveTask()" id="save">Save</button>
+</fieldset>
+</div>
+<section id="show">
+<h3>My Saved Tasks</h3>
+<ol type="1" id="task">
+
+</ol>
+</section>
+    <footer>&copy;2020 Samizzo Njuguna &trade;
+</footer>
+<script type="text/javascript">
+today=document.querySelector("#today");
+function printTime() {
+  var d = new Date();
+today.innerHTML = d;
+ }
+setInterval(printTime,1000);
+
+//now  coding for task entry
+ let con=document.querySelector("#task");
+
+let d = document.querySelector("#date");
+let T=document.querySelector("#entry");
+let C= document.querySelector("#time");
+const saveTask=()=>{
+let Task= document.createElement('LI');
+let br = document.createElement('br');
+let br1 = document.createElement('br');
+let cB = document.createElement('button');
+let box = document.createElement('input');
+box.type="checkbox";
+let label = document.createElement('label');
+let lb = document.createTextNode ("Completion Status: ");
+label.appendChild(lb);
+let Bt= document.createTextNode("Remove");
+cB.appendChild(Bt);
+cB.style.backgroundColor = "red";
+cB.className='delete';
+let startDate = d.value;
+let newTask = T.value;
+let startTime = C.value;
+let text = document.createTextNode(startDate+ ": " + newTask + " Start time:" +  startTime); 
+Task.appendChild(text);
+Task.appendChild(br);
+Task.appendChild(label);
+Task.appendChild(box);
+Task.appendChild(br1);
+Task.appendChild(cB);
+con.appendChild(Task);
+
+//delete function
+
+const deleteTask =()=>{
+con.removeChild(Task);
+};
+cB.onclick= deleteTask;
+};
+//indexeddb
+
+</script>
+</body>
+</html>
