@@ -67,7 +67,7 @@ let startDate = d.value;
 let newTask = T.value;
 let startTime = C.value;
 if(startDate!=="" && newTask !== "" && startTime !== ""){
-let text = document.createTextNode(startDate+ ": " + newTask + " Start time:" +  startTime);}; 
+let text = document.createTextNode(startDate+ ": " + newTask + " Start time:" +  startTime); 
 Task.appendChild(text);
 Task.appendChild(br);
 Task.appendChild(label);
@@ -75,7 +75,7 @@ Task.appendChild(box);
 Task.appendChild(br1);
 Task.appendChild(cB);
 con.appendChild(Task);
-
+};
 //delete function
 
 const deleteTask =()=>{
