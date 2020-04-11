@@ -21,9 +21,9 @@ progress {color: red;}
 </header>
    <div><fieldset>
 <legend>Task Entry</legend>
-<label>Date:</label><input type="text" name="date" id="date" placeholder="DD/MM/YYYY" required></input><br><br>
+<label>Date:</label><input type="date" name="date" id="date" placeholder="DD/MM/YYYY" required></input><br><br>
 <label>Task:</label><input type="text" name="task" id="entry" placeholder="enter task to be done " required></input><br><br>
-<label>Time:</label><input type="text" name="loc" id="time" placeholder="task start time" required></input><br><br>
+<label>Time:</label><input type="time" name="loc" id="time" placeholder="task start time" required></input><br><br>
 <button onclick="saveTask()" id="save">Save</button>
 </fieldset>
 </div>
@@ -76,7 +76,6 @@ Task.appendChild(br1);
 Task.appendChild(cB);
 con.appendChild(Task);
  };
-   con.onclick = document.querySelectorAll('fieldset').reset();
 //delete function
 
 const deleteTask =()=>{
